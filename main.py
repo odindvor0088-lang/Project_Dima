@@ -14,3 +14,17 @@ class MediaDevice(ABC):
         self.battery_level = battery_level
         self.current_volume = current_volume
 
+    @abstractmethod
+    def play(self):
+        """начать воспроизведение"""
+        pass
+
+    @abstractmethod
+    def stop(self):
+        """остановить воспроизведение"""
+        pass
+
+    @abstractmethod
+    def get_device_type(self):
+        """возвращает тип устройства"""
+        pass
