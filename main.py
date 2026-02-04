@@ -49,3 +49,6 @@ class MediaDevice(ABC):
             print("Уровень звука не может быть меньше 0!")
         else:
             print("Уровень звука установлен.")
+
+    def __str__(self):
+        return f"{self.brand} {self.model} {self.battery_level} {self.is_on} {self.current_volume}"
