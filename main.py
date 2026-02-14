@@ -30,15 +30,15 @@ class MediaDevice(ABC):
         pass
 
     def power_on(self):
-        self.is_on = True
+        self._is_on = True
         print(" Устройство включено")
 
     def power_off(self):
-        self.is_on = False
+        self._is_on = False
         print("Устройство выключено")
 
     def charge(self):
-        if self.battery_level == self.BATTERY_WARNING_LEVEL:
+        if self._battery_level == self.BATTERY_WARNING_LEVEL:
             print("Поставьте устройство на зарядку! (Уровень батареи 20%)")
 
     def adjust_volume(self, level):
@@ -51,7 +51,7 @@ class MediaDevice(ABC):
             print("Уровень звука установлен.")
 
     def __str__(self):
-        return f"{self.brand} {self.model} {self.battery_level} {self.is_on} {self.current_volume}"
+        return f"{self.brand} {self.model} {self._battery_level} {self._is_on} {self._current_volume}"
 
     @staticmethod
     def check_battery_health(quantity_cycles):
@@ -73,3 +73,14 @@ class MediaDevice(ABC):
             current_volume=data["current_volume"],
             battery_level=data["battery_level"],
         )
+    @property
+    def get_is_on(self):
+        """Геттер для is_on"""
+        return self._is_on
+    @get_is_on.setter
+    def is_on(self, value):
+        """Сеттер для is_on"""
+        self._is_on = value
+        print(f"Устройство включено")
+
+
