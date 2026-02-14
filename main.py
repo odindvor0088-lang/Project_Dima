@@ -50,7 +50,7 @@ class MediaDevice(ABC):
         else:
             print("Уровень звука установлен.")
 
-    def str(self):
+    def __str__(self):
         return f"{self.brand} {self.model} {self.battery_level} {self.is_on} {self.current_volume}"
 
     @staticmethod
