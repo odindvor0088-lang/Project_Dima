@@ -55,11 +55,11 @@ class MediaDevice(ABC):
 
     @staticmethod
     def check_battery_health(quantity_cycles):
-        if quantity_cycles[0] >= 90:
+        if quantity_cycles >= 90:
             print("Состояние батареи отличное")
-        elif quantity_cycles[0] >= 70:
+        elif quantity_cycles >= 70:
             print("Состояние батареи хорошее")
-        elif quantity_cycles[0] >= 40:
+        elif quantity_cycles >= 40:
             print("Состояние батареи среднее")
         else:
             print("Состояние батареи плохое. Поменяйте батарею")
